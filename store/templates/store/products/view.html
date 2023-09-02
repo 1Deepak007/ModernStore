@@ -2,14 +2,57 @@
 
 {% block content %}
 
-<div class="py-3 bg-primary">
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .zoom {
+        padding: 0px;
+        background-color: white;
+        transition: transform .2s;
+        width: auto;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .zoom:hover {
+        -ms-transform: scale(1.75);
+        /* IE 9 */
+        -webkit-transform: scale(1.75);
+        /* Safari 3-8 */
+        transform: scale(1.75);
+    }
+
+    
+    .pop {
+        padding: 0px;
+        background-color: white;
+        transition: transform .2s;
+        width: auto;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .pop:hover {
+        -ms-transform: scale(1.75);
+        /* IE 9 */
+        -webkit-transform: scale(1.75);
+        /* Safari 3-8 */
+        transform: scale(1.75);
+    }
+</style>
+
+
+
+<!-- <div class="py-3 bg-primary">
     <div class="container">
         <a class="text-white" href="{% url 'home' %}">Home /</a>
         <a class="text-white" href="{% url 'collections' %}">Collections /</a>
         <a class="text-white" href="{% url 'collectionsview' products.category.slug %}">{{products.category.name}} /</a>
         <a class="text-white" href="{% url 'productview' products.category.slug products.slug %}">{{products.name}}</a>
     </div>
-</div>
+</div> -->
 
 <div class="py-5">
     <div class="container">
@@ -18,15 +61,16 @@
                 <div class="card shadow product_data">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="float-left">
                                 {% if products.tag %}
                                     <label class="product-viewtag">{{ products.tag }}</label>
                                 {% endif %}
-                                <img src="{{products.product_image.url}}" class="w-100" alt="image"/>
+                            </div>
+                            <div class="col-md-4">
+                                <img src="{{products.product_image.url}}" class="zoom w-100" alt="image"/>
                             </div>
                             <div class="col-md-8">
-                                <h2 class="md-0">
-                                    {{products.name}}
+                                <h2 class="md-0"> {{products.name}}
                                     {% if products.trending %}
                                         <label style="font-size: 16px;" class="float-end badge bg-danger trending_tag">Trending</label>
                                     {% endif %}
@@ -51,7 +95,7 @@
                                         <label for="Quantity">Quantity</label>
                                         <div class="input-group text-center mb-3" style="width:130px;">
                                             <button class="input-group-text decrement-btn"> - </button>
-                                            <input type="text" name="quantity" class="form-control qty-input text-center" value="1">
+                                            <input type="text" name="quantity" class="form-control qty-input text-center pop" value="1">
                                             <button class="input-group-text increment-btn"> + </button>
                                         </div>
                                     </div>

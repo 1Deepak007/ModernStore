@@ -34,7 +34,7 @@ $(document).ready(function () {
 
                     var options = {
                         "key": "rzp_test_gCaw60fSXJlxRk", // Enter the Key ID generated from the Dashboard
-                        "amount":  1*100,           //response.total_price, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                        "amount": 1*100,           //response.total_price, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
                         "currency": "INR",
                         "name": "Deepak The Developer", //your business name
                         "description": "Thank you for buying from us",
@@ -52,7 +52,7 @@ $(document).ready(function () {
                                 "state": state,
                                 "country": country,
                                 "pincode": pincode,
-                                "payment_mode": payment_mode,
+                                "payment_mode": "Paid by Razorpay", //payment_mode,
                                 "payment_id": response.razorpay_payment_id,
                                 csrfmiddlewaretoken: token
                             }

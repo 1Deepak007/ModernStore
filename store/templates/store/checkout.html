@@ -4,12 +4,12 @@
 
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
-<div class="py-3 bg-primary">
+{% comment %} <div class="py-3 bg-primary">
     <div class="container">
         <a class="text-white" href="{% url 'home' %}">Home /</a>
         <a class="text-white" href="{% url 'checkout' %}">Checkout /</a>
     </div>
-</div>
+</div> {% endcomment %}
 
 <div class="container mt-3">
     <form action="{% url 'placeorder' %}" method="POST">

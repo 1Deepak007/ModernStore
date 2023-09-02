@@ -2,12 +2,12 @@
 
 {% block content %}
 
-<div class="py-3 bg-primary">
+{% comment %} <div class="py-3 bg-primary">
     <div class="container">
         <a class="text-white" href="{% url 'home' %}">Home /</a>
         <a class="text-white" href="{% url 'cart' %}">Cart /</a>
     </div>
-</div>
+</div> {% endcomment %}
 
 {% comment %} ADDING ITEM TO CART CODE {% endcomment %}
 
@@ -21,7 +21,7 @@
                             {% for item in cart %}
                                 <div class="row product_data">
                                     <div class="col-md-12 my-auto">
-                                        <img src="{{item.product.product_image.url}}" height="70px" with="70px" alt="Image here">
+                                        <img src="{{item.product.product_image.url}}" height="100px" with="100px" alt="Image here">
                                     </div>
                                     <div class="col-md-3 my-auto">
                                         <h6>{{ item.product.name }}</h6>

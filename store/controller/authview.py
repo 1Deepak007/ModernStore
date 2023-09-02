@@ -1,8 +1,9 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,HttpResponse
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
-
+from django.contrib.auth.models import User
 from store.forms import CustomUserForm
+
 
 def register(request):
     form = CustomUserForm()
@@ -42,4 +43,5 @@ def logoutpage(request):
         logout(request)
         messages.success(request,"Logged out successfully")
         return redirect("/")
+    
     

@@ -2,9 +2,15 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 
+
+
 from store.controller import authview,cart,wishlist,checkout,order
 
 urlpatterns = [
+    # dashboard
+    path('admin/dashboard', views.dashboard_with_pivot, name='dashboard_with_pivot'),
+    path('data', views.pivot_data, name='pivot_data'),
+    
     path('', views.home, name="home"),
     path('collections',views.collections, name="collections"),
     path('collections/<str:slug>', views.collectionsview, name="collectionsview"),
@@ -30,7 +36,16 @@ urlpatterns = [
     path('place-order', checkout.placeorder, name='placeorder'),
     path('proceed-to-pay', checkout.razorpaycheck),
     
+    # path('my-orders', checkout.orders, name='myorders'),
+    path('my-orders', order.index, name='myorders'),            
+    path('view-order/<str:t_no>',order.vieworder, name="orderview"),
     
-    path('my-orders', order.index, name='myorders'),
-    path('view-order/<str:t_no>',order.vieworder, name="orderview")
-]
+    
+    # blog
+    path('blog/',include('blog.urls')),
+    
+    # IrisApp
+    path('irisapp/',include('IrisApp.urls')),
+    
+    # path('diabetese', include('IrisApp.urls'))
+] 
